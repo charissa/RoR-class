@@ -13,7 +13,7 @@ class Foo
   def cc
    @a+@b
   end
- #this overwrited the attr_accessor 
+ #this overwrites the attr_accessor 
  # be careful of this kind of thing because the inside is not what the outside can see .....
 
   
