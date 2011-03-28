@@ -34,10 +34,8 @@ This bicycle has the following characteristics:
 Wheel size: #{@wheel_size} inches
 Front gear has #{@chainring} teeth
 Rear gears have #{@cassette} teeth
+At cadence of 100 rpm this bike can go approximately #{"%.1f" %self.mph(100)} mph in gear #{"%2d" % (1+@gear_i)}
 }
-# How horrible is this --- mixing puts-ing a string and printf! Gross.
-  printf("At cadence of 100 rpm this bike can go approximately %.1f mph in gear %2d", self.mph(100), 1+@gear_i)
-
     end
 end
 
@@ -49,13 +47,9 @@ if __FILE__ == $0
   bike.set_gear(8)
   bf_tikit.set_gear(8)
   puts ""
-  # need to learn how to format to the console some day...
-  # You would think that someone would have devised a more intuitive way to format stuff by now. 
-  # printf goes back to Fortan, COBOL and the stone ages...
-  #
-  printf("Bike Friday can go about %.1f mph at a cadence of 80.\n", bf_tikit.mph(80))
-  # and I am pretty sure that this is not Ruby-like... but I couldn't find any thing else for the time being...
-  printf("Regular bike can go about %.1f mph at a cadence of 80.\n", bike.mph(80))
+
+  puts "Bike Friday can go about #{"%.1f" % bf_tikit.mph(80)} mph at a cadence of 80."
+  puts "Regular bike can go about #{"%.1f" % bike.mph(80)} mph at a cadence of 80."
   
   puts ""
   puts bike.info
